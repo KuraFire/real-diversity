@@ -1,0 +1,27 @@
+{
+  "name": "real-diversity",
+  "version": "1.0.0",
+  "description": "Little Twitter app to get a sense of how diverse your own Twitter experience is.",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.13.3",
+    "express-react-views": "^0.8.2",
+    "flutter": "^0.0.3",
+    "react": "^0.13.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KuraFire/real-diversity.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KuraFire/real-diversity/issues"
+  },
+  "homepage": "https://github.com/KuraFire/real-diversity"
+}
