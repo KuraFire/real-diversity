@@ -1,29 +1,37 @@
 var express = require('express');
-var Flutter = require('flutter');
 var path = require('path');
 var sassMiddleware = require('node-sass-middleware');
 var logger = require('morgan');
 
-var flutter = new Flutter({
-  consumerKey: process.env.TWITTER_CONSUMER_KEY,
-  consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-  loginCallback: 'http://localhost:5000/twitter/callback',
-
-  authCallback: function(req, res, next) {
-    if (req.error) {
-      // Authentication failed, req.error contains details
-      return;
-    }
-
-    var accessToken = req.session.oauthAccessToken;
-    var secret = req.session.oauthAccessTokenSecret;
-
-    // Store away oauth credentials here
-
-    // Redirect user back to your app
-    res.redirect('/back/to/app');
-  }
-});
+// var Flutter = require('flutter');
+// var flutter = new Flutter({
+//   consumerKey: process.env.TWITTER_CONSUMER_KEY,
+//   consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+//   loginCallback: 'http://localhost:5000/twitter/callback',
+//
+//   connectCallback: function(req, res, next){
+//     console.log(req);
+//     console.log(res);
+//   },
+//
+//   authCallback: function(req, res, next) {
+//     console.log(req);
+//     console.log(res);
+//
+//     if (req.error) {
+//       // Authentication failed, req.error contains details
+//       return;
+//     }
+//
+//     var accessToken = req.session.oauthAccessToken;
+//     var secret = req.session.oauthAccessTokenSecret;
+//
+//     // Store away oauth credentials here
+//
+//     // Redirect user back to your app
+//     res.redirect('/back/to/app');
+//   }
+// });
 
 var app = express();
 
@@ -43,8 +51,8 @@ app.use(sassMiddleware({
 }),
 express.static(path.join(__dirname)));
 
-app.get('/twitter/connect', flutter.connect);
-app.get('/twitter/callback', flutter.auth);
+// app.get('/twitter/connect', flutter.connect);
+// app.get('/twitter/callback', flutter.auth);
 
 app.get('/', function (req, res) {
   res.render('index');
