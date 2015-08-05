@@ -1,6 +1,6 @@
 # The #RealDiversityNumbers of your Twitter
 
-This is aittle Twitter app to get a sense of how diverse your own Twitter experience is. The procedure is simple:
+This is a little Twitter app to get a sense of how diverse your own Twitter experience is. The procedure is simple:
 
 1. You authenticate with Twitter, and the app will pull down a sampling (up to 150) of people you *Follow* on Twitter.
 2. You go through this sampling of people and tag the gender and race, to get a glimpse of how diverse or homogeneous your Twitter experience is.
