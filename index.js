@@ -5,8 +5,8 @@ var sassMiddleware = require('node-sass-middleware');
 var logger = require('morgan');
 
 var flutter = new Flutter({
-  consumerKey: 'MY CONSUMER KEY',
-  consumerSecret: 'MY CONSUMER SECRET',
+  consumerKey: process.env.TWITTER_CONSUMER_KEY,
+  consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
   loginCallback: 'http://localhost:5000/twitter/callback',
 
   authCallback: function(req, res, next) {
