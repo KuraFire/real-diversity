@@ -23,12 +23,15 @@ var flutter = new Flutter({
 });
 
 var app = express();
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
 
 app.get('/twitter/connect', flutter.connect);
 app.get('/twitter/callback', flutter.auth);
 
 app.get('/', function (req, res) {
-  res.send('Hello World!');
+  res.render('index');
 });
 
 var server = app.listen(process.env.PORT || 5000, function () {
