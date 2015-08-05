@@ -6,6 +6,7 @@ var DefaultLayout = React.createClass({
       <html>
         <head>
           <title>realdiversity</title>
+          <link href='/public/styles.css' rel='stylesheet' />
         </head>
         <body>{this.props.children}</body>
       </html>

@@ -1,5 +1,8 @@
 var express = require('express');
 var Flutter = require('flutter');
+var path = require('path');
+var sassMiddleware = require('node-sass-middleware');
+var logger = require('morgan');
 
 var flutter = new Flutter({
   consumerKey: 'MY CONSUMER KEY',
@@ -23,9 +26,22 @@ var flutter = new Flutter({
 });
 
 var app = express();
+
+app.use(logger('dev'));
+
+// VIEWS
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
+
+// SASS
+app.use(sassMiddleware({
+  src: __dirname + '/styles',
+  dest: __dirname + '/public',
+  debug: true,
+  outputStyle: 'compressed'
+}),
+express.static(path.join(__dirname)));
 
 app.get('/twitter/connect', flutter.connect);
 app.get('/twitter/callback', flutter.auth);
